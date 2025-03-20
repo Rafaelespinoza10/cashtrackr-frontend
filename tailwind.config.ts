@@ -8,12 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "auth": "url('/grafico.svg')"
+      },
+      backgroundSize: {
+          "30": "30rem"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 };
 export default config;
