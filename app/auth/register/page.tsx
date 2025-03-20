@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RegisterForm } from "@/components/auth/RegisterForm";
 import Link from "next/link";
 
-export const dataMeta: Metadata = {
+export const metadata: Metadata = {
   title: "CashTrackr - Crear cuenta",
   description:  "CashTrack - Crear cuenta",
 }

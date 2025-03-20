@@ -27,7 +27,7 @@ export default function CreateBudgetForm() {
                 }
             });
         }
-    },[state])
+    },[state, router])
 
   return (
     <form

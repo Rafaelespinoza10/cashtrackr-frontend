@@ -5,10 +5,13 @@ import { Metadata } from "next";
 import { format } from "date-fns";
 import ExpenseMenu from "@/components/expenses/ExpenseMenu";
 import Amount from "@/components/ui/Amount";
-import { CircularProgressbar } from "react-circular-progressbar";
 import { ProgressBar } from "@/components/budgets/ProgressBar";
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const budget = await getBudgetId(params.id);
   console.log(budget);
   return {
@@ -16,6 +19,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     description: `CashTrackr - ${budget.Name}`,
   };
 }
+
 
 export default async function BudgetDetailsPage({
   params,

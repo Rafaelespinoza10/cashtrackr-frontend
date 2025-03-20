@@ -38,7 +38,7 @@ export default function EditBudgetForm({budget}: EditBudgetFormProps) {
                 }
             });
         }
-    },[state])
+    },[state, router])
 
 return (
     <>

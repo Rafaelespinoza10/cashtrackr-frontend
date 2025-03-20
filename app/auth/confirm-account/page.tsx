@@ -1,7 +1,7 @@
 import { ConfirmAccountForm } from "@/components/auth/ConfirmAccountForm";
 import type { Metadata } from "next";
 
-export const dataMeta: Metadata = {
+export const metadata: Metadata = {
   title: "CashTrackr - Olvide mi password",
   description: "CashTrack - Olvide mi password",
 };

@@ -18,26 +18,26 @@ export const ConfirmAccountForm = () => {
     });
 
     useEffect(() => {
-        if(isComplete){
-            dispatch();
+        if (isComplete) {
+          dispatch();
         }
-    }, [isComplete])
-
-    useEffect(()=>{
-        if(state.errors){
-            state.errors.forEach(error => {
-                toast.error(error);
-            });
+      }, [isComplete, dispatch]);
+      
+      useEffect(() => {
+        if (state.errors) {
+          state.errors.forEach((error) => {
+            toast.error(error);
+          });
         }
-
-        if(state.success){
-            toast.success(state.success, {
-                    onClose: () =>{
-                        router.push('/auth/login');
-                    }
-            });
+        if (state.success) {
+          toast.success(state.success, {
+            onClose: () => {
+              router.push('/auth/login');
+            },
+          });
         }
-    },[state])    
+      }, [state, router]);
+      
     const handleChange =(token: string) =>{
         setIsComplete(false);
         setToken(token);

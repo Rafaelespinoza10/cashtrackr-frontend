@@ -2,7 +2,7 @@ import LoginForm from "@/components/auth/LoginForm";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const dataMeta: Metadata = {
+export const metadata: Metadata = {
   title: "CashTrackr - Iniciar sesion",
   description:  "CashTrack - Iniciar sesion",
 }

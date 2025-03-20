@@ -43,7 +43,7 @@ export default async function createExpenseAction(budgetId: number, prevState: A
         const { error} = ErrorResponseSchema.parse(json);
         return{
             errors:[error],
-            sucess: ''
+            success: ''
         };
     }
 

@@ -24,7 +24,7 @@ useEffect(()=>{
      toast.success(state.success);
      closeModal();
   }
-},[state])
+},[state, closeModal])
 
 return (
     <>

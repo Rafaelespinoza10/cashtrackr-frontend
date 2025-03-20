@@ -5,7 +5,11 @@ import Link from "next/link";
 
 
 
-export async function generateMetadata({ params }):Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata>{
     const budget = await getBudgetId(params.id);
     return {
       title: `CashTrackr - ${budget.Name}`,

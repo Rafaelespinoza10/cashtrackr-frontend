@@ -4,7 +4,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { DialogTitle } from "@headlessui/react";
 import { useFormState } from "react-dom";
 import { deleteBudgetAction } from "@/actions/delete-budget-action";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export default function ConfirmPasswordForm() {
@@ -20,23 +20,23 @@ export default function ConfirmPasswordForm() {
     success: '',
   });
 
+  const closeModal = useCallback(() => {
+    const hideModal = new URLSearchParams(searchParams.toString());
+    hideModal.delete("deleteBudgetId");
+    router.replace(`${pathname}?${hideModal}`);
+  }, [searchParams, router, pathname]);
+  
   useEffect(() => {
     if (state.errors) {
-      state.errors.forEach(error => toast.error(error));
+      state.errors.forEach((error) => toast.error(error));
     }
-    if(state.success){
-        toast.success(state.success);
-        
-        closeModal();
+    if (state.success) {
+      toast.success(state.success);
+      closeModal();
     }
-  }, [state]);
+  }, [state, closeModal]); 
 
-  const closeModal = () => {
-    const hideModal = new URLSearchParams(searchParams.toString());
-    hideModal.delete('deleteBudgetId');
-    router.replace(`${pathname}?${hideModal}`);
-  };
-
+  
   if (!budgetId) {
     return <p className="text-red-500">Parámetro de presupuesto no encontrado.</p>;
   }

@@ -5,7 +5,6 @@ import { UserSchema } from "../schemas";
 import { cache } from "react";
 
 export const VerifySession =  cache(async () => {
-    const allCookies = cookies().getAll();
 
     const token = cookies().get('CASHTRACKR_TOKEN')?.value;
 
